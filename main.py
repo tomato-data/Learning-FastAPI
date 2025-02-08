@@ -22,3 +22,5 @@ app.add_middleware(
 
 app.include_router(question_router.router)
 app.include_router(answer_router.router)
+for route in app.routes:
+    print(route.path, route.methods)
