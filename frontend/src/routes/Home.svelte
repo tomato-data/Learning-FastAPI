@@ -11,3 +11,9 @@
 
     get_question_list()
 </script>
+
+<ul>
+    {#each question_list as question}
+        <li>{question.subject}</li>
+    {/each}
+</ul>
