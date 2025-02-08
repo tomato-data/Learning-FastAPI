@@ -4,7 +4,8 @@ from starlette.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [
-    "http://localhost:5173", # or "http://127.0.0.1:5173"
+    "http://localhost:5173",
+    # "http://127.0.0.1:5173"
 ]
 
 app.add_middleware(
@@ -14,6 +15,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.get("/hello")
 def hello():
