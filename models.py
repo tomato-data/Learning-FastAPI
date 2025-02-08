@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 from database import Base
 
 
-class Qustion(Base):
+class Question(Base):
     __tablename__ = "question"
 
     id = Column(Integer, primary_key=True)
