@@ -19,3 +19,8 @@ class Answer(BaseModel):
     content: str
     create_date: datetime.datetime
     user: User | None
+    question_id: int
+
+
+class AnswerUpdate(AnswerCreate):
+    answer_id: int
