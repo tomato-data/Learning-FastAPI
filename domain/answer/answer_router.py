@@ -81,6 +81,6 @@ def answer_vote(
     db_answer = answer_crud.get_answer(db, answer_id=_answer_vote.answer_id)
     if not db_answer:
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST, detail="데이터를 찾을 수 없습니다."
+            status_code=status.HTTP_400_BAD_REQUEST, detail="데이터를 찾을수 없습니다."
         )
     answer_crud.vote_answer(db, db_answer=db_answer, db_user=current_user)

@@ -88,6 +88,22 @@
             )
         }
     }
+    function vote_answer(answer_id) {
+        if(window.confirm('정말로 추천하시겠습니까?')) {
+            let url = "/api/answer/vote"
+            let params = {
+                answer_id: answer_id
+            }
+            fastapi('post', url, params, 
+                (json) => {
+                    get_question()
+                },
+                (err_json) => {
+                    error = err_json
+                }
+            )
+        }
+    }
 </script>
 
 <div class="container my-3">
@@ -140,6 +156,10 @@
                     </div>
                 </div>
                 <div class="my-3">
+                    <button class="btn btn-sm btn-outline-secondary" on:click="{vote_answer(answer.id)}">
+                        추천
+                        <span class="badge rounded-pill bg-success">{ answer.voter.length }</span>
+                    </button>
                 {#if answer.user && $username === answer.user.username }
                 <a use:link href="/answer-modify/{answer.id}" 
                     class="btn btn-sm btn-outline-secondary">수정</a>
